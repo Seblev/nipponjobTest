@@ -1,0 +1,7 @@
+parameters:
+#    nipponjob_accueil.example.class: Nipponjob\AccueilBundle\Example
+
+services:
+#    nipponjob_accueil.example:
+#        class: %nipponjob_accueil.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

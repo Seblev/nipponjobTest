@@ -1,0 +1,4 @@
+nipponjob_accueil:
+    resource: "@NipponjobAccueilBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,3 @@
+nipponjob_accueil_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NipponjobAccueilBundle:Default:index }
