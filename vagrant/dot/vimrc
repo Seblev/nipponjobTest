@@ -1,0 +1,59 @@
+"
+" General behavior
+"
+set nocompatible " Use vim defaults
+
+"
+" Coloration
+"
+set t_Co=256
+"colorscheme jellybeans
+
+" Tabs & Indentation
+"
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent
+"set list
+
+
+syntax on
+
+set encoding=utf-8
+set fileencoding=utf-8
+
+let mapleader="," " Use the comma as leader
+set history=1000 " Increase history
+set nospell
+
+set showcmd " Display incomplete commands.
+set showmode " Display the mode you're in.
+
+set number " Show line numbers.
+set ruler " Show cursor position.
+
+set ignorecase " Case-insensitive searching.
+set smartcase " But case-sensitive if expression contains a capital letter.
+set incsearch " Highlight matches as you type.
+set hlsearch " Highlight matches.
+set showmatch " Show matching char (like {})
+
+set visualbell " No beeping.
+
+set nobackup " Don't make a backup before overwriting a file.
+set nowritebackup " And again.
+set noswapfile " Use an SCM instead of swap files
+
+
+" Disable folding by default
+set nofoldenable
+
+"undo
+set undolevels=1000 " use many levels of undo
+"set noundofile
+
+"activate mouse!
+set mouse=a

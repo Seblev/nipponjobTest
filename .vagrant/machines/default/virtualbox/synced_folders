@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"guestpath":"/var/www","hostpath":"D:/web/nipponjob.com","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/web/nipponjob.com","disabled":false}}}
