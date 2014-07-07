@@ -28,9 +28,6 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-    form:
-        resources:
-            - BraincraftedBootstrapBundle:Form:bootstrap.html.twig
 
 # Assetic Configuration
 assetic:
@@ -85,6 +82,17 @@ knp_menu:
     default_renderer:     twig
 
 braincrafted_bootstrap:
-    less_filter: less
+    assets_dir:           %kernel.root_dir%/../vendor/twbs/bootstrap
+    fontawesome_dir:      %kernel.root_dir%/../vendor/fortawesome/font-awesome
+    jquery_path:          %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js
+    less_filter:          less
+    icon_prefix:          glyphicon
+    customize:
+        variables_file:       ~
+        bootstrap_output:     %kernel.root_dir%/Resources/less/bootstrap.less
+        bootstrap_template:   BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig
     auto_configure:
-        knp_menu: true
+        assetic:              true
+        twig:                 true
+        knp_menu:             true
+        knp_paginator:        true

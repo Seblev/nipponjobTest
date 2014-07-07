@@ -11,9 +11,9 @@
             "type": "package",
             "package": {
                 "name": "jquery/jquery",
-                "version": "1.10.2",
+                "version": "1.11.2",
                 "dist": {
-                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "url": "http://code.jquery.com/jquery-1.11.1.js",
                     "type": "file"
                 }
             }
@@ -32,7 +32,7 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "twbs/bootstrap": "3.0.*",
-        "jquery/jquery":  "1.10.*",
+        "jquery/jquery":  "1.11.*",
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
         "braincrafted/bootstrap-bundle": "~2.1@beta"
