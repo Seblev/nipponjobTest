@@ -4,11 +4,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>{% block title %}Yep!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+
+    <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+
+        {% block stylesheets %}    
+        {% endblock %}
+    <style type="text/css">
+
+.nav li {
+display: inline-block;
+}
+
+</style>
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+
+            <h1><a href="#">Nipponjob</a></h1>
+            {{ knp_menu_render('NipponjobAccueilBundle:BuilderMenu:mainMenu') }}
+
+    <div class="content" style="margin-top: 60px;">
+    {% block body %}
+    {% endblock %}
+    </div>    
+
+     <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <!-- Include all JavaScripts, compiled by Assetic -->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+{% block javascripts %}
+{% endblock %}
     </body>
 </html>

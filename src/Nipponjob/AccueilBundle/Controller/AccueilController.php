@@ -4,10 +4,15 @@ namespace Nipponjob\AccueilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class AccueilController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('NipponjobAccueilBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('NipponjobAccueilBundle:Accueil:index.html.twig');
+    }
+    
+        public function contactAction()
+    {
+        return $this->render('NipponjobAccueilBundle:Accueil:contact.html.twig');
     }
 }

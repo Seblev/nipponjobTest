@@ -15,9 +15,6 @@ php5-curl php5-gd php5-intl php5-mcrypt php5-sqlite php5-xdebug php5-apc bash-co
 sudo sed -i 's#;date.timezone =#date.timezone = Europe/Paris#g' /etc/php5/apache2/php.ini
 sudo sed -i 's#;date.timezone =#date.timezone = Europe/Paris#g' /etc/php5/cli/php.ini
 
-echo "Add symfony2 AutoComplete..."
-sudo wget -O /etc/bash_completion.d/symfony2-autocomplete.bash https://raw.github.com/KnpLabs/symfony2-autocomplete/master/symfony2-autocomplete.bash
-
 echo "Installing composer..."
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer

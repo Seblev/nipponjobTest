@@ -9,3 +9,4 @@ dos2unix /vagrant/vagrant/dot/vimrc
 
 cp /vagrant/vagrant/dot/vimrc ~/.vimrc
 cp /vagrant/vagrant/dot/vimrc /home/vagrant/.vimrc
+sudo apt-get install xclip

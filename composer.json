@@ -1,11 +1,24 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "license": "MIT",
+    "name": "nipponjob/nipponjob",
+    "license": "none",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
+    "description": "Nipponjob siteweb with symfony2",
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.10.2",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.10.2.js",
+                    "type": "file"
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.5.*",
@@ -17,7 +30,12 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "twbs/bootstrap": "3.0.*",
+        "jquery/jquery":  "1.10.*",
+        "knplabs/knp-menu": "dev-master",
+        "knplabs/knp-menu-bundle": "dev-master",
+        "braincrafted/bootstrap-bundle": "~2.1@beta"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -53,7 +71,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.5-dev"
+            "dev-master": "0.1-dev"
         }
     }
 }
