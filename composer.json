@@ -31,7 +31,7 @@
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
-        "twbs/bootstrap": "3.0.*",
+        "twbs/bootstrap": "3.1.*",
         "jquery/jquery":  "1.11.*",
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",

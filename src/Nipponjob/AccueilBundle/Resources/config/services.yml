@@ -1,7 +1,13 @@
-parameters:
-#    nipponjob_accueil.example.class: Nipponjob\AccueilBundle\Example
-
 services:
-#    nipponjob_accueil.example:
-#        class: %nipponjob_accueil.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    nipponjob_accueil.menu_builder:
+        class: Nipponjob\AccueilBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    nipponjob_accueil.menu.main:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: nipponjob_accueil.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
