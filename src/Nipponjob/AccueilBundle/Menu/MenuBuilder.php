@@ -23,7 +23,7 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Accueil', array('route' => 'nipponjob_accueil_index'));
-        $menu->addChild('Index', array('route' => 'nipponjob_accueil_contact'));
+        $menu->addChild('Contact', array('route' => 'nipponjob_accueil_contact'));
 
         return $menu;
     }
