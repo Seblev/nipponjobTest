@@ -4,3 +4,11 @@ nipponjob_accueil_index:
 nipponjob_accueil_contact:
     path:     /contact
     defaults: { _controller: NipponjobAccueilBundle:Accueil:contact }
+nipponjob_accueil_ajouter:
+    path:     /ajouter
+    defaults: { _controller: NipponjobAccueilBundle:Accueil:ajouter }
+nipponjob_accueil_voir:
+    path:     /voir/{id}
+    defaults: { _controller: NipponjobAccueilBundle:Accueil:voir, id: 1 }
+    requirements:
+        id:  \d+
