@@ -1,0 +1,10 @@
+{# src/Nipponjob/AccueilBundle/Resources/views/Accueil/voir.html.twig #}
+{% extends 'NipponjobAccueilBundle::base.html.twig' %}
+ {% block body %}
+     Arcticle : 
+     
+    {% if article.contenu is not null %}
+    {{ article.contenu }}
+    {% endif %}<p>
+     </p>
+ {% endblock %}
