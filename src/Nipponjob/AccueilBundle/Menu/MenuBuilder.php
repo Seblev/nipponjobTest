@@ -22,10 +22,10 @@ class MenuBuilder
     {
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('Accueil', array('route' => 'nipponjob_accueil_index'));
-        $menu->addChild('Ajouter', array('route' => 'nipponjob_accueil_ajouter'));
-        $menu->addChild('Voir', array('route' => 'nipponjob_accueil_voir'));
-        $menu->addChild('Contact', array('route' => 'nipponjob_accueil_contact'));
+        $menu->addChild('Accueil', array('route' => 'nipponjob_accueil_index', 'routeAbsolute' => true));
+        $menu->addChild('Ajouter', array('route' => 'nipponjob_accueil_ajouter', 'routeAbsolute' => true));
+        $menu->addChild('Voir', array('route' => 'nipponjob_accueil_voir', 'routeAbsolute' => true));
+        $menu->addChild('Contact', array('route' => 'nipponjob_accueil_contact', 'routeAbsolute' => true));
 
         return $menu;
     }
