@@ -14,6 +14,8 @@ class AccueilController extends Controller
     
     public function contactAction()
     {
+        $session = $this->get('session');
+        $session->set('user_id', 84);
         return $this->render('NipponjobAccueilBundle:Accueil:contact.html.twig');
     }
     
@@ -38,7 +40,7 @@ class AccueilController extends Controller
 
     // Étape 2 : On « flush » tout ce qui a été persisté avant
     $em->flush();
-
+    $this->get('session')->getFlashBag()->add('info', 'Article '.$article->getId().' bien enregistré.');
     return $this->redirect( $this->generateUrl('nipponjob_accueil_voir', array('id' => $article->getId())) );
     }
     

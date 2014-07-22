@@ -1,6 +1,13 @@
 {# src/Nipponjob/AccueilBundle/Resources/views/Accueil/voir.html.twig #}
 {% extends 'NipponjobAccueilBundle::base.html.twig' %}
  {% block body %}
+    <p>
+      {# On affiche tous les messages flash dont le nom est « info » #}
+      {% for message in app.session.flashbag.get('info') %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </p>
+    
      Arcticle : 
      
     {% if article.contenu is not null %}
