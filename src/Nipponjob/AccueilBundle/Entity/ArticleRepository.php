@@ -1,5 +1,4 @@
 <?php
-
 namespace Nipponjob\AccueilBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -12,4 +11,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    
 }

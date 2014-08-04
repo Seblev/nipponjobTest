@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+      /**
+   * @ORM\ManyToMany(targetEntity="Nipponjob\AccueilBundle\Entity\Categorie", cascade={"persist"})
+   */
+    private $categories;
+    
+   /**
+    * @ORM\OneToOne(targetEntity="Nipponjob\AccueilBundle\Entity\Image", cascade={"persist"})
+    */
+    private $image;
+    
     /**
      * @var integer
      *
@@ -247,4 +257,28 @@ class Article
     {
         return $this->note;
     }
+
+    /**
+     * Set image
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Image $image
+     * @return Article
+     */
+    public function setImage(\Nipponjob\AccueilBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Nipponjob\AccueilBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
 }

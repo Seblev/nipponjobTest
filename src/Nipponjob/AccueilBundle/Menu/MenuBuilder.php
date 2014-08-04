@@ -1,6 +1,4 @@
 <?php
-// src/Nipponjob/AccueilBundle/Menu/MenuBuilder.php
-
 namespace Nipponjob\AccueilBundle\Menu;
 
 use Knp\Menu\FactoryInterface;

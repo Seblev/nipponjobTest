@@ -4,7 +4,7 @@
     "type": "project",
     "description": "Nipponjob siteweb with symfony2",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-0": {"": "src/", "SymfonyStandard": "app/"}
     },
     "repositories": [
         {
@@ -24,6 +24,8 @@
         "symfony/symfony": "2.5.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/data-fixtures": "@dev",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
@@ -32,14 +34,14 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "twbs/bootstrap": "3.1.*",
-        "jquery/jquery":  "1.11.*",
+        "jquery/jquery": "1.11.*",
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
         "braincrafted/bootstrap-bundle": "~2.1@beta"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
-        "elao/web-profiler-extra-bundle" : "~2.3@dev"
+        "elao/web-profiler-extra-bundle": "~2.3@dev"
     },
     "scripts": {
         "post-root-package-install": [

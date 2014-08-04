@@ -1,17 +1,33 @@
-{# src/Nipponjob/AccueilBundle/Resources/views/Accueil/voir.html.twig #}
-{% extends 'NipponjobAccueilBundle::base.html.twig' %}
- {% block body %}
-    <p>
+{% extends '::base.html.twig' %}
+
+{% block title %}Liste{% endblock %}
+
+{% block body %}
+<h3>Votre id est {{ app.session.get('user_id') }}</h3>
+<p>
       {# On affiche tous les messages flash dont le nom est « info » #}
       {% for message in app.session.flashbag.get('info') %}
-        <p>{{ message }}</p>
+    <p>{{ message }}</p>
       {% endfor %}
-    </p>
-    
-     Arcticle : 
-     
+</p>
+
+Catégorie :
+
+     {% if article.categories.count > 0 %}
+     {% for  categorie  in article.categories %}
+     {{ categorie.nom }}
+     {% endfor %}
+     {% endif %}
+<p>Article : 
+
     {% if article.contenu is not null %}
     {{ article.contenu }}
-    {% endif %}<p>
-     </p>
+    {% endif %}
+</p>
+<p> Images : 
+
+    {% if article.image is not null %}
+    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}">
+    {% endif %}
+</p>
  {% endblock %}

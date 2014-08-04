@@ -12,6 +12,17 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Article
 {
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Nipponjob\AccueilBundle\Entity\Categorie", cascade={"persist"})
+     */
+    private $categories;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Nipponjob\AccueilBundle\Entity\Image", cascade={"persist"})
+     */
+    private $image;
+
     /**
      * @var integer
      *
@@ -62,7 +73,7 @@ class Article
      * * @ORM\Column(name="active", type="boolean")
      */
     private $active;
-    
+
     /**
      * @var smallint
      *
@@ -70,12 +81,13 @@ class Article
      */
     private $note;
 
-  public function __construct()
-  {
-    $this->dateCreation = new \Datetime(); // Par défaut, la date de l'article est la date d'aujourd'hui
-    $this->active = "0"; // Par defaut l'article n'est pas actif
-    $this->note="0"; // Une note
-  }
+    public function __construct()
+    {
+        $this->dateCreation = new \Datetime(); // Par défaut, la date de l'article est la date d'aujourd'hui
+        $this->active = "0"; // Par defaut l'article n'est pas actif
+        $this->note = "0"; // Une note
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -246,5 +258,61 @@ class Article
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Image $image
+     * @return Article
+     */
+    public function setImage(\Nipponjob\AccueilBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Nipponjob\AccueilBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Categorie $categories
+     * @return Article
+     */
+    public function addCategory(\Nipponjob\AccueilBundle\Entity\Categorie $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Categorie $categories
+     */
+    public function removeCategory(\Nipponjob\AccueilBundle\Entity\Categorie $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
