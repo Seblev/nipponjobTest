@@ -15,7 +15,7 @@ Catégorie :
 
      {% if article.categories.count > 0 %}
      {% for  categorie  in article.categories %}
-     {{ categorie.nom }}
+     {{ categorie.nom }}{% if not loop.last %} - {% endif %}
      {% endfor %}
      {% endif %}
 <p>Article : 

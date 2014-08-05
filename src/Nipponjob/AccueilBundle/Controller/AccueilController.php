@@ -46,31 +46,26 @@ class AccueilController extends Controller
                                 array('id' => $article->getId())));
     }
 
-    public function idAction($id)
+    public function idAction(Article $article)
     {
-        $repository = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article');
-
-        $article = $repository->myFindOneByTitre();
-
-        if ($article === null)
-        {
-            throw $this->createNotFoundException('L\'article avec le numero [id=' . $id . '] n\'existe pas.');
-        }
-
-        return $this->render('NipponjobAccueilBundle:Accueil:voir.html.twig',
+        return $this->render('NipponjobAccueilBundle:Accueil:id.html.twig',
                         array('article' => $article));
     }
 
     public function listeAction()
     {
+        $categories = array('Tutoriel');
         $liste = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->ohYeah();
+        $listec = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->getAvecCategories($categories);
 
-        if ($liste === null)
+        if ($liste === null || $listec === null)
         {
             throw $this->createNotFoundException('Pas de liste possible !');
         }
 
+
+
         return $this->render('NipponjobAccueilBundle:Accueil:liste.html.twig',
-                        array('liste' => $liste));
+                        array('liste' => $liste, 'listec' => $listec));
     }
 }

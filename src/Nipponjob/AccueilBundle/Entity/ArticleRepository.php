@@ -1,4 +1,5 @@
 <?php
+
 namespace Nipponjob\AccueilBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
@@ -11,10 +12,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    public function myFindOneByTitre(){
-        return $this->createQueryBuilder('a')->where('a.titre = :titre')->setParameter('titre', 'Celui-ci')->getQuery()->getSingleResult();
+
+    public function myFindOneByTitre()
+    {
+        return $this->createQueryBuilder('a')->where('a.titre = :titre')->setParameter('titre',
+                        'Celui-ci')->getQuery()->getSingleResult();
     }
-    public function ohYeah(){
-    return $this->_em->createQuery('SELECT a.titre FROM NipponjobAccueilBundle:Article a')->getResult();
+
+    public function ohYeah()
+    {
+        return $this->_em->createQuery('SELECT a.titre, c.nom FROM NipponjobAccueilBundle:Article a LEFT JOIN a.categories c')->getResult();
+    }
+
+    public function getAvecCategories(array $categories)
+    {
+        $qb = $this->createQueryBuilder('a');
+        $qb->join('a.categories', 'c')->where($qb->expr()->in('c.nom',
+                        $categories));
+        return $qb->getQuery()->getResult();
     }
 }

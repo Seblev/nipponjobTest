@@ -4,10 +4,20 @@
 
 {% block body %}
 
+{{ dump(listec)}}
+Liste des tutoriels :
 <ul>
-{% for ligne in liste %}
-        <li>{{ ligne.titre }}</li>
+{% for article in listec %}
+        <li>{{ article.titre }}</li>
 {% endfor %}
         </ul>
+        <br>
+        <br>
+        Cette requête n'a aucun sens ! Mais elle montre une jointure
+        <ul>
+{% for ligne in liste %}
+                <li>{{ ligne.titre }} - {{ ligne.nom }}</li>
+{% endfor %}
+                </ul>
 
  {% endblock %}
