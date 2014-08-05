@@ -11,5 +11,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
-    
+    public function myFindOneByTitre(){
+        return $this->createQueryBuilder('a')->where('a.titre = :titre')->setParameter('titre', 'Celui-ci')->getQuery()->getSingleResult();
+    }
+    public function ohYeah(){
+    return $this->_em->createQuery('SELECT a.titre FROM NipponjobAccueilBundle:Article a')->getResult();
+    }
 }

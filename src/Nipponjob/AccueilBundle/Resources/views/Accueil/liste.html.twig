@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Liste{% endblock %}
+
+{% block body %}
+
+<ul>
+{% for ligne in liste %}
+        <li>{{ ligne.titre }}</li>
+{% endfor %}
+        </ul>
+
+ {% endblock %}

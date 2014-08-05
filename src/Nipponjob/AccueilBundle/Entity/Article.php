@@ -24,6 +24,11 @@ class Article
     private $image;
 
     /**
+     * @ORM\OneToMany(targetEntity="Nipponjob\AccueilBundle\Entity\Commentaire", mappedBy="article")
+     */
+    private $commentaires;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -87,6 +92,7 @@ class Article
         $this->active = "0"; // Par defaut l'article n'est pas actif
         $this->note = "0"; // Une note
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -314,5 +320,38 @@ class Article
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Add commentaires
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Commentaire $commentaires
+     * @return Article
+     */
+    public function addCommentaire(\Nipponjob\AccueilBundle\Entity\Commentaire $commentaires)
+    {
+        $this->commentaires[] = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaires
+     *
+     * @param \Nipponjob\AccueilBundle\Entity\Commentaire $commentaires
+     */
+    public function removeCommentaire(\Nipponjob\AccueilBundle\Entity\Commentaire $commentaires)
+    {
+        $this->commentaires->removeElement($commentaires);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }

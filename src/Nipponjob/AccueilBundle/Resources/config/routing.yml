@@ -7,8 +7,11 @@ nipponjob_accueil_contact:
 nipponjob_accueil_ajouter:
     path:     /ajouter
     defaults: { _controller: NipponjobAccueilBundle:Accueil:ajouter }
-nipponjob_accueil_voir:
-    path:     /voir/{id}
-    defaults: { _controller: NipponjobAccueilBundle:Accueil:voir, id: 1 }
+nipponjob_accueil_id:
+    path:     /id/{id}
+    defaults: { _controller: NipponjobAccueilBundle:Accueil:id, id: 1 }
     requirements:
         id:  \d+
+nipponjob_accueil_liste:
+    path:     /liste
+    defaults: { _controller: NipponjobAccueilBundle:Accueil:liste }
