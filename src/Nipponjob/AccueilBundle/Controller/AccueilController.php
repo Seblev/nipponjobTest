@@ -3,8 +3,9 @@
 namespace Nipponjob\AccueilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Nipponjob\AccueilBundle\Entity\Article;
-use Nipponjob\AccueilBundle\Entity\Image;
+use Nipponjob\AccueilBundle\Entity\Contact;
 
 class AccueilController extends Controller
 {
@@ -14,11 +15,19 @@ class AccueilController extends Controller
         return $this->render('NipponjobAccueilBundle:Accueil:index.html.twig');
     }
 
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-        $session = $this->get('session');
+        $session = $this->get('session'); //appel du service session
         $session->set('user_id', 84);
-        return $this->render('NipponjobAccueilBundle:Accueil:contact.html.twig');
+        if ('POST' === $request->getMethod())
+        {
+            return $this->render('NipponjobAccueilBundle:Accueil:contact.html.twig',
+                            array('valid' => TRUE));
+        }
+        $form = $this->createFormBuilder(new Contact())->add('mail', 'text')->add('message',
+                        'textarea')->getForm();
+        return $this->render('NipponjobAccueilBundle:Accueil:contact.html.twig',
+                        array('form' => $form->createView(), 'valid' => FALSE));
     }
 
     public function ajouterAction()

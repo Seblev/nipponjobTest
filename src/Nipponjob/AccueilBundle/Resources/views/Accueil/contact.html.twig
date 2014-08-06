@@ -1,4 +1,14 @@
 {% extends '::base.html.twig' %}
+{% block title %}Contact{% endblock %}
  {% block body %}
-     Contact :D !!!
+
+{% if valid == TRUE %}
+form reçu
+{% else %}
+<h2>Contact:</h2>
+<form method="post" {{ form_enctype(form) }}>
+{{ form_widget(form)}}
+        <input type="submit" class="btn btn-primary">
+</form>
+{% endif %}
  {% endblock %}
