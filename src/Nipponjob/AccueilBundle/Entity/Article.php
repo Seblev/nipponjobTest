@@ -89,7 +89,8 @@ class Article
     public function __construct()
     {
         $this->dateCreation = new \Datetime(); // Par défaut, la date de l'article est la date d'aujourd'hui
-        $this->active = FALSE; // Par defaut l'article n'est pas actif
+        $this->active = false; // Par defaut l'article n'est pas actif
+        $this->auteur = 'Bibi';
         $this->note = "0"; // Une note
         $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
         $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();

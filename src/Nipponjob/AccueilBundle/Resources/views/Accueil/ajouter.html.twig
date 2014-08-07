@@ -8,7 +8,7 @@
       {% endfor %}
 <a href="{{ path('nipponjob_accueil_ajouter', {'id': articleId} ) }}"> Le Corriger </a>
 {% else %}
-<h2>Ajouter:</h2>
-{{ form(form) }}
+<div class="col-md-2"><h2>Ajouter:</h2></div>
+<div class="col-md-8">{{ form(form) }}</div>
 {% endif %}
  {% endblock %}
