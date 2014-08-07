@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block title %}Ajouter{% endblock %}
+ {% block body %}
+
+{% if valid == TRUE %}
+{% for message in app.session.flashbag.get('form') %}
+<p>{{ message }}</p>
+      {% endfor %}
+<a href="{{ path('nipponjob_accueil_ajouter', {'id': articleId} ) }}"> Le Corriger </a>
+{% else %}
+<h2>Ajouter:</h2>
+{{ form(form) }}
+{% endif %}
+ {% endblock %}

@@ -5,6 +5,7 @@ namespace Nipponjob\AccueilBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Nipponjob\AccueilBundle\Entity\Article;
+use Nipponjob\AccueilBundle\Form\ArticleType;
 use Nipponjob\AccueilBundle\Entity\Contact;
 
 class AccueilController extends Controller
@@ -30,7 +31,42 @@ class AccueilController extends Controller
                         array('form' => $form->createView(), 'valid' => FALSE));
     }
 
-    public function ajouterAction()
+    public function ajouterAction($id)
+    {
+         if ($id != 0)
+          {
+          $article = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->find($id);
+          }
+          else
+          {
+          $article = new Article;
+          } 
+        
+        $form = $this->createForm(new ArticleType, $article);
+        $request = $this->get('request');
+        $form->handleRequest($request);
+
+        if ($request->getMethod() == 'POST')
+        {
+            if ($form->isValid())
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($article);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('form',
+                        'Article ' . $article->getId() . ' bien enregistré.');
+                $parameters = array('valid' => TRUE, 'articleId' => $article->getId());
+            }
+        }
+        else
+        {
+            $parameters = array('form' => $form->createView(), 'valid' => FALSE);
+        }
+        return $this->render('NipponjobAccueilBundle:Accueil:ajouter.html.twig',
+                        $parameters);
+    }
+
+    public function ajouterstaticAction()
     {
 
         /** Création de l'entité */

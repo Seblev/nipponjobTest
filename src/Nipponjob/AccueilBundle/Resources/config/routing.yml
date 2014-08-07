@@ -5,8 +5,10 @@ nipponjob_accueil_contact:
     path:     /contact
     defaults: { _controller: NipponjobAccueilBundle:Accueil:contact }
 nipponjob_accueil_ajouter:
-    path:     /ajouter
-    defaults: { _controller: NipponjobAccueilBundle:Accueil:ajouter }
+    path:     /ajouter/{id}
+    defaults: { _controller: NipponjobAccueilBundle:Accueil:ajouter, id: 0}
+    requirements:
+        id:  \d+
 nipponjob_accueil_id:
     path:     /id/{id}
     defaults: { _controller: NipponjobAccueilBundle:Accueil:id, id: 1 }
