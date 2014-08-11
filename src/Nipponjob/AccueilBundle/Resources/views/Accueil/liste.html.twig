@@ -4,20 +4,21 @@
 
 {% block body %}
 
-{{ dump(listec)}}
+{#{{ dump(listec)}}#}
 Liste des tutoriels :
 <ul>
 {% for article in listec %}
         <li>{{ article.titre }}</li>
+        <li>Image : <img src="{{ asset(article.image.webPath) }}" alt="{{ article.image.alt }}"></li>
+{% endfor %}
+</ul>
+<br>
+<br>
+Cette requête n'a aucun sens ! Mais elle montre une jointure
+<ul>
+{% for ligne in liste %}
+        <li>{{ ligne.titre }} - {{ ligne.nom }}</li>
 {% endfor %}
         </ul>
-        <br>
-        <br>
-        Cette requête n'a aucun sens ! Mais elle montre une jointure
-        <ul>
-{% for ligne in liste %}
-                <li>{{ ligne.titre }} - {{ ligne.nom }}</li>
-{% endfor %}
-                </ul>
 
  {% endblock %}

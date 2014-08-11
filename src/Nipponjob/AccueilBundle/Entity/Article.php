@@ -19,7 +19,7 @@ class Article
     private $categories;
 
     /**
-     * @ORM\OneToOne(targetEntity="Nipponjob\AccueilBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Nipponjob\AccueilBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $image;
 

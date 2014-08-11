@@ -31,7 +31,7 @@ class AccueilController extends Controller
                         array('form' => $form->createView(), 'valid' => FALSE));
     }
 
-    public function ajouterAction($id)
+    public function ajouterAction(Request $request, $id)
     {
          if ($id != 0)
           {
@@ -43,7 +43,6 @@ class AccueilController extends Controller
           } 
         
         $form = $this->createForm(new ArticleType, $article);
-        $request = $this->get('request');
         $form->handleRequest($request);
 
         if ($request->getMethod() == 'POST')
