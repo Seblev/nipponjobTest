@@ -3,12 +3,16 @@
 namespace Nipponjob\AccueilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Nipponjob\AccueilBundle\Validator\Bibi;
 
 /**
  * Article
  *
  * @ORM\Table(name="nipponjob_article")
  * @ORM\Entity(repositoryClass="Nipponjob\AccueilBundle\Entity\ArticleRepository")
+ * @UniqueEntity(fields="titre", message="Un article existe déjà avec ce titre.")
  */
 class Article
 {
@@ -20,6 +24,7 @@ class Article
 
     /**
      * @ORM\OneToOne(targetEntity="Nipponjob\AccueilBundle\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
     private $image;
 
@@ -41,6 +46,9 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\NotBlank(message="Merci de compléter")
+     * @Assert\Length(min="10",max="50")
+     * @Bibi()
      */
     private $titre;
 
@@ -48,6 +56,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenu", type="text")
+     * @Assert\Notblank()k
      */
     private $contenu;
 

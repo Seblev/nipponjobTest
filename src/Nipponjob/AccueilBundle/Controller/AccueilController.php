@@ -44,6 +44,7 @@ class AccueilController extends Controller
         
         $form = $this->createForm(new ArticleType, $article);
         $form->handleRequest($request);
+        $parameters = array('form' => $form->createView(), 'valid' => FALSE);
 
         if ($request->getMethod() == 'POST')
         {
@@ -56,10 +57,6 @@ class AccueilController extends Controller
                         'Article ' . $article->getId() . ' bien enregistré.');
                 $parameters = array('valid' => TRUE, 'articleId' => $article->getId());
             }
-        }
-        else
-        {
-            $parameters = array('form' => $form->createView(), 'valid' => FALSE);
         }
         return $this->render('NipponjobAccueilBundle:Accueil:ajouter.html.twig',
                         $parameters);
