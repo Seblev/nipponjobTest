@@ -4,9 +4,12 @@ namespace Nipponjob\AccueilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Nipponjob\AccueilBundle\Entity\Article;
 use Nipponjob\AccueilBundle\Form\ArticleType;
 use Nipponjob\AccueilBundle\Entity\Contact;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class AccueilController extends Controller
 {
@@ -33,15 +36,15 @@ class AccueilController extends Controller
 
     public function ajouterAction(Request $request, $id)
     {
-         if ($id != 0)
-          {
-          $article = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->find($id);
-          }
-          else
-          {
-          $article = new Article;
-          } 
-        
+        if ($id != 0)
+        {
+            $article = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->find($id);
+        }
+        else
+        {
+            $article = new Article;
+        }
+
         $form = $this->createForm(new ArticleType, $article);
         $form->handleRequest($request);
         $parameters = array('form' => $form->createView(), 'valid' => FALSE);
@@ -93,6 +96,11 @@ class AccueilController extends Controller
                         array('article' => $article));
     }
 
+    /**
+     * 
+     * @Template
+     * 
+     */
     public function listeAction()
     {
         $categories = array('Tutoriel');
@@ -104,9 +112,15 @@ class AccueilController extends Controller
             throw $this->createNotFoundException('Pas de liste possible !');
         }
 
+        return array('liste' => $liste, 'listec' => $listec);
+    }
 
-
-        return $this->render('NipponjobAccueilBundle:Accueil:liste.html.twig',
-                        array('liste' => $liste, 'listec' => $listec));
+    /**
+     * 
+     * @Route("/annotation")
+     */
+    public function AnnotationAction()
+    {
+        return new Response('Route par annotation !');
     }
 }

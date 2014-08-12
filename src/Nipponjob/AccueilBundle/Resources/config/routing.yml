@@ -17,3 +17,6 @@ nipponjob_accueil_id:
 nipponjob_accueil_liste:
     path:     /liste
     defaults: { _controller: NipponjobAccueilBundle:Accueil:liste }
+accueil_route:
+    resource: "@NipponjobAccueilBundle/Controller"
+    type:     annotation
