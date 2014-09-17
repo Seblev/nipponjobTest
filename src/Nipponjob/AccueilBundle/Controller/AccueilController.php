@@ -10,6 +10,8 @@ use Nipponjob\AccueilBundle\Form\ArticleType;
 use Nipponjob\AccueilBundle\Entity\Contact;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class AccueilController extends Controller
 {
@@ -36,6 +38,9 @@ class AccueilController extends Controller
 
     public function ajouterAction(Request $request, $id)
     {
+        if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
+      throw new AccessDeniedHttpException('Accès limité aux auteurs');
+    }
         if ($id != 0)
         {
             $article = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->find($id);
@@ -99,7 +104,7 @@ class AccueilController extends Controller
     /**
      * 
      * @Template
-     * 
+     * @Secure(roles="ROLE_AUTEUR")
      */
     public function listeAction()
     {

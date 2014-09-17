@@ -1,4 +1,10 @@
 nipponjob_accueil:
     resource: "@NipponjobAccueilBundle/Resources/config/routing.yml"
     prefix:   /
-    
+acces:
+    pattern:   /acces
+    defaults:  { _controller: NipponjobUserBundle:Security:acces }
+acces_verif:
+    pattern:   /acces_verif
+deconnexion:
+    pattern:   /deconnexion

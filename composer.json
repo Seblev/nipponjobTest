@@ -37,7 +37,10 @@
         "jquery/jquery": "1.11.*",
         "knplabs/knp-menu": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
-        "braincrafted/bootstrap-bundle": "~2.1@beta"
+        "jms/security-extra-bundle": "dev-master",
+        "braincrafted/bootstrap-bundle": "~2.1@beta",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
