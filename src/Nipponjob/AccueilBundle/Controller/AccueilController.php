@@ -40,7 +40,7 @@ class AccueilController extends Controller
     {
         if (!$this->get('security.context')->isGranted('ROLE_AUTEUR'))
         {
-            return $this->redirect($this->generateUrl('acces'));
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
         if ($id != 0)
         {
