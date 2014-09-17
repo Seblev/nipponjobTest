@@ -11,5 +11,5 @@
 /vendor/
 /bin/
 /composer.phar
-/.vagrant
+/.vagrant/
 /nbproject
