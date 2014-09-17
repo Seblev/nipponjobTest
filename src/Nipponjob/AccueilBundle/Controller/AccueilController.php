@@ -38,9 +38,10 @@ class AccueilController extends Controller
 
     public function ajouterAction(Request $request, $id)
     {
-        if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
-      throw new AccessDeniedHttpException('Accès limité aux auteurs');
-    }
+        if (!$this->get('security.context')->isGranted('ROLE_AUTEUR'))
+        {
+            return $this->redirect($this->generateUrl('acces'));
+        }
         if ($id != 0)
         {
             $article = $this->getDoctrine()->getManager()->getRepository('NipponjobAccueilBundle:Article')->find($id);

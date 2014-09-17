@@ -22,7 +22,7 @@ class Users implements FixtureInterface
             $users[$i]->setPassword($nom);
             // Le sel et les rôles sont vides pour l'instant
             $users[$i]->setSalt('');
-            $users[$i]->setRoles(array());
+            $users[$i]->setRoles(array('ROLE_AUTEUR'));
             // On le persiste
             $manager->persist($users[$i]);
         }
