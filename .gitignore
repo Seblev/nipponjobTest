@@ -11,7 +11,11 @@
 /vendor/
 /bin/
 /composer.phar
+<<<<<<< .merge_file_JuG4Hb
 /.vagrant
 Vagrantfile
 /vagrant
+=======
+/.vagrant/
+>>>>>>> .merge_file_0Ib7sZ
 /nbproject
