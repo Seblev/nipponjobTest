@@ -12,4 +12,6 @@
 /bin/
 /composer.phar
 /.vagrant
+Vagrantfile
+/vagrant
 /nbproject
