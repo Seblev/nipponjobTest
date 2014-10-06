@@ -13,3 +13,5 @@
 /composer.phar
 /.vagrant/
 /nbproject
+Vagrantfile
+/vagrant/
